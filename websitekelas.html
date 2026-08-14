@@ -1,0 +1,2500 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website resmi kelas X-9 - Kelas yang solid, kompak, kreatif, dan terbaik.">
+    <meta name="theme-color" content="#0f172a">
+
+    <title>X-9 | Kelas Tersolid & Terbaik</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --pink: #ec4899;
+            --cyan: #06b6d4;
+
+            --dark: #0f172a;
+            --dark-2: #111827;
+            --dark-3: #1e293b;
+
+            --light: #f8fafc;
+            --white: #ffffff;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+
+            --gradient: linear-gradient(
+                135deg,
+                #6366f1 0%,
+                #8b5cf6 50%,
+                #ec4899 100%
+            );
+
+            --shadow: 0 20px 50px rgba(15, 23, 42, 0.10);
+            --shadow-hover: 0 25px 70px rgba(99, 102, 241, 0.20);
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: "Poppins", sans-serif;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient);
+            border-radius: 50px;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            padding: 18px 5%;
+            transition: 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+
+        .nav-container {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .logo-icon span {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.92rem;
+            font-weight: 600;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: white;
+        }
+
+        .nav-menu a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(99, 102, 241, 0.35),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(236, 72, 153, 0.30),
+                    transparent 30%
+                ),
+                #080d1c;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                );
+            background-size: 50px 50px;
+            mask-image: linear-gradient(to bottom, black, transparent);
+        }
+
+        .hero-container {
+            width: 90%;
+            max-width: 1250px;
+            margin: auto;
+            padding-top: 100px;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 16px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #c4b5fd;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 15px #22c55e;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            letter-spacing: -5px;
+            margin-bottom: 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                #818cf8,
+                #c084fc,
+                #f472b6
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: #cbd5e1;
+            font-size: 1.08rem;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 24px;
+            border-radius: 14px;
+            font-weight: 700;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            color: white;
+            background: var(--gradient);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 45px rgba(99, 102, 241, 0.45);
+        }
+
+        .btn-outline {
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .hero-card-wrapper {
+            position: relative;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .hero-card {
+            padding: 35px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: #6366f1;
+            filter: blur(80px);
+            opacity: 0.4;
+            top: -80px;
+            right: -80px;
+        }
+
+        .class-symbol {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 25px;
+            border-radius: 32px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 50px rgba(99,102,241,0.35);
+            font-size: 2.3rem;
+            font-weight: 800;
+        }
+
+        .hero-card h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .hero-card > p {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .mini-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .mini-stat {
+            padding: 18px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .mini-stat strong {
+            display: block;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .mini-stat span {
+            color: #94a3b8;
+            font-size: 0.78rem;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            background: #ec4899;
+            top: 15%;
+            left: 5%;
+            filter: blur(60px);
+        }
+
+        .shape-2 {
+            width: 140px;
+            height: 140px;
+            background: #06b6d4;
+            bottom: 10%;
+            right: 5%;
+            filter: blur(80px);
+        }
+
+        /* ================= GENERAL ================= */
+
+        section {
+            padding: 110px 5%;
+        }
+
+        .section-container {
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 65px;
+        }
+
+        .section-label {
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 14px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2.2rem, 5vw, 3.7rem);
+            margin-bottom: 18px;
+            letter-spacing: -1px;
+        }
+
+        .section-heading p {
+            color: var(--gray);
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-visual {
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-main-card {
+            width: 330px;
+            height: 400px;
+            border-radius: 35px;
+            background: var(--gradient);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: var(--shadow-hover);
+            transform: rotate(-4deg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-main-card::before,
+        .about-main-card::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+        }
+
+        .about-main-card::before {
+            width: 350px;
+            height: 350px;
+        }
+
+        .about-main-card::after {
+            width: 500px;
+            height: 500px;
+        }
+
+        .about-main-card .big-x {
+            font-size: 7rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-main-card h3 {
+            font-size: 2.4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-main-card p {
+            position: relative;
+            z-index: 2;
+            opacity: 0.85;
+        }
+
+        .about-small-card {
+            position: absolute;
+            right: 0;
+            bottom: 30px;
+            padding: 25px;
+            width: 210px;
+            border-radius: 22px;
+            background: white;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-light);
+            transform: rotate(5deg);
+        }
+
+        .about-small-card strong {
+            font-size: 2rem;
+            display: block;
+            color: var(--primary);
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .about-content p {
+            color: var(--gray);
+            margin-bottom: 18px;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        /* WALI KELAS */
+
+        .homeroom-teacher {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 18px;
+            margin-bottom: 22px;
+            border-radius: 50px;
+            background: linear-gradient(
+                135deg,
+                #ede9fe,
+                #fce7f3
+            );
+            border: 1px solid #ddd6fe;
+            color: #6366f1;
+            font-size: 0.9rem;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(99,102,241,0.08);
+        }
+
+        .homeroom-teacher .teacher-icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .homeroom-teacher strong {
+            color: #4f46e5;
+        }
+
+        .about-features {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 13px;
+            padding: 17px;
+            border-radius: 17px;
+            background: #f8fafc;
+            border: 1px solid #eef2f7;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #ede9fe;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .feature-item h4 {
+            font-size: 0.95rem;
+            margin-bottom: 3px;
+        }
+
+        .feature-item p {
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        /* ================= VALUES ================= */
+
+        .values {
+            background: #f1f5f9;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 22px;
+            border: 1px solid #e5e7eb;
+            transition: 0.35s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .value-number {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .value-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient);
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            font-size: 0.88rem;
+            color: var(--gray);
+        }
+
+        /* ================= STATS ================= */
+
+        .stats {
+            background: var(--dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 30px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .stat-box:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            font-family: "Poppins";
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* ================= MEMBERS ================= */
+
+        .members {
+            background: white;
+        }
+
+        .members-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 45px;
+            gap: 30px;
+        }
+
+        .members-top .section-heading {
+            text-align: left;
+            margin: 0;
+        }
+
+        .member-count {
+            padding: 12px 18px;
+            background: #f1f5f9;
+            border-radius: 50px;
+            color: var(--gray);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .member-card {
+            padding: 20px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: 0.3s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            background: white;
+            border-color: #c7d2fe;
+            box-shadow: 0 15px 35px rgba(99,102,241,0.12);
+        }
+
+        .member-number {
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+            border-radius: 13px;
+            background: var(--gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 800;
+        }
+
+        .member-info h3 {
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .member-info span {
+            font-size: 0.72rem;
+            color: var(--gray);
+        }
+
+        /* ================= QUOTE ================= */
+
+        .quote-section {
+            padding: 120px 5%;
+            background: linear-gradient(
+                135deg,
+                #4f46e5,
+                #7c3aed,
+                #db2777
+            );
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-content {
+            max-width: 900px;
+            margin: auto;
+            position: relative;
+            text-align: center;
+        }
+
+        .quote-content h2 {
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            margin-bottom: 25px;
+        }
+
+        .quote-content p {
+            font-size: 1.05rem;
+            opacity: 0.85;
+        }
+
+        /* ================= ACTIVITIES ================= */
+
+        .activities {
+            background: #f8fafc;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            border: 1px solid #e5e7eb;
+            transition: 0.3s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+
+        .activity-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .activity-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 16px;
+            background: #ede9fe;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .activity-number {
+            color: #cbd5e1;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .activity-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .activity-card p {
+            color: var(--gray);
+            font-size: 0.88rem;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            background: white;
+        }
+
+        .cta-box {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px;
+            border-radius: 35px;
+            background: var(--dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            color: #94a3b8;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #070b16;
+            color: white;
+            padding: 70px 5% 30px;
+        }
+
+        .footer-container {
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-brand p {
+            max-width: 450px;
+            color: #64748b;
+            margin-top: 20px;
+        }
+
+        .footer-title {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: #64748b;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            color: #475569;
+            font-size: 0.8rem;
+        }
+
+        /* ================= BACK TOP ================= */
+
+        .back-top {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 15px;
+            background: var(--gradient);
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(99,102,241,0.3);
+        }
+
+        .back-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* ================= ANIMATION ================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1000px) {
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                padding-top: 140px;
+                padding-bottom: 80px;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-card-wrapper {
+                max-width: 500px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-visual {
+                max-width: 600px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .members-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .activity-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 750px) {
+
+            .navbar {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 80px;
+                left: 5%;
+                width: 90%;
+                padding: 25px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                background: rgba(15,23,42,0.98);
+                border-radius: 20px;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: 0.3s;
+            }
+
+            .nav-menu.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-box:nth-child(2) {
+                border-right: none;
+            }
+
+            .stat-box {
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .members-top {
+                display: block;
+            }
+
+            .member-count {
+                display: inline-block;
+                margin-top: 20px;
+            }
+
+            .members-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .activity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-box {
+                padding: 45px 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .hero h1 {
+                font-size: 3.4rem;
+            }
+
+            .hero-description {
+                font-size: 0.95rem;
+            }
+
+            .about-main-card {
+                width: 270px;
+                height: 350px;
+            }
+
+            .about-small-card {
+                right: -5px;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-box {
+                padding: 20px 10px;
+            }
+
+            .stat-number {
+                font-size: 2.3rem;
+            }
+
+            .homeroom-teacher {
+                font-size: 0.82rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar" id="navbar">
+
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <span>X9</span>
+                </div>
+
+                <span>CLASS X-9</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Buka menu"
+            >
+                ☰
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">Tentang</a>
+                </li>
+
+                <li>
+                    <a href="#values">Nilai Kelas</a>
+                </li>
+
+                <li>
+                    <a href="#members">Anggota</a>
+                </li>
+
+                <li>
+                    <a href="#activities">Aktivitas</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+
+            <div class="hero-container">
+
+                <div class="hero-content reveal">
+
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        WELCOME TO OUR CLASS
+                    </div>
+
+                    <h1>
+                        X-<span class="gradient-text">9</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Sebuah kelas yang bukan hanya sekumpulan siswa
+                        dalam satu ruangan, tetapi sebuah keluarga yang
+                        tumbuh bersama, belajar bersama, tertawa bersama,
+                        dan menciptakan cerita yang akan selalu dikenang.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#about" class="btn btn-primary">
+                            Kenal Lebih Dekat →
+                        </a>
+
+                        <a href="#members" class="btn btn-outline">
+                            Lihat Anggota
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-card-wrapper">
+
+                    <div class="hero-card">
+
+                        <div class="class-symbol">
+                            X9
+                        </div>
+
+                        <h2>CLASS X-9</h2>
+
+                        <p>
+                            Solid • Kompak • Kreatif • Berprestasi
+                        </p>
+
+                        <div class="mini-stats">
+
+                            <div class="mini-stat">
+                                <strong>36</strong>
+                                <span>Anggota</span>
+                            </div>
+
+                            <div class="mini-stat">
+                                <strong>1</strong>
+                                <span>Keluarga</span>
+                            </div>
+
+                            <div class="mini-stat">
+                                <strong>∞</strong>
+                                <span>Kenangan</span>
+                            </div>
+
+                            <div class="mini-stat">
+                                <strong>100%</strong>
+                                <span>Solid</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TENTANG KELAS ================= -->
+
+        <section class="about" id="about">
+
+            <div class="section-container">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-label">
+                        About Our Class
+                    </div>
+
+                    <h2>
+                        Tentang <span class="gradient-text">X-9</span>
+                    </h2>
+
+                    <p>
+                        Mengenal lebih jauh siapa kami, bagaimana kami
+                        tumbuh, dan mengapa X-9 begitu spesial.
+                    </p>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <!-- VISUAL -->
+
+                    <div class="about-visual reveal">
+
+                        <div class="about-main-card">
+
+                            <div class="big-x">
+                                X
+                            </div>
+
+                            <h3>
+                                X-9
+                            </h3>
+
+                            <p>
+                                One Class. One Family.
+                            </p>
+
+                        </div>
+
+
+                        <div class="about-small-card">
+
+                            <strong>
+                                36
+                            </strong>
+
+                            <span>
+                                orang dengan karakter berbeda,
+                                tetapi satu cerita.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTENT -->
+
+                    <div class="about-content reveal">
+
+                        <h3>
+                            KAMI ADALAH KELAS X-9 YANG TERSOLID DAN TERBAIK
+                        </h3>
+
+
+                        <!-- WALI KELAS -->
+                        <div class="homeroom-teacher">
+
+                            <span class="teacher-icon">
+                                👨‍🏫
+                            </span>
+
+                            <span>
+                                Wali Kelas:
+                                <strong>
+                                    Bapak Windi
+                                </strong>
+                            </span>
+
+                        </div>
+
+
+                        <p>
+                            <span class="highlight">
+                                X-9
+                            </span>
+                            adalah sebuah kelas yang terdiri dari berbagai
+                            macam karakter, kepribadian, kemampuan, dan
+                            cerita. Walaupun setiap anggota memiliki
+                            perbedaan, perbedaan tersebut justru membuat
+                            kelas ini menjadi semakin berwarna.
+                        </p>
+
+                        <p>
+                            Kami percaya bahwa sebuah kelas bukan hanya
+                            tentang nilai, pelajaran, tugas, atau ujian.
+                            Lebih dari itu, kelas adalah tempat di mana kami
+                            belajar untuk saling menghargai, memahami,
+                            membantu, dan bekerja sama.
+                        </p>
+
+                        <p>
+                            Di X-9, setiap hari menjadi kesempatan untuk
+                            menciptakan kenangan baru. Mulai dari belajar
+                            bersama, mengerjakan tugas, berdiskusi,
+                            bercanda, mengikuti kegiatan sekolah, hingga
+                            menghadapi berbagai tantangan bersama-sama.
+                        </p>
+
+                        <p>
+                            Kami mungkin tidak selalu sempurna. Terkadang
+                            ada perbedaan pendapat, kesalahpahaman, atau
+                            bahkan masalah kecil. Namun, hal tersebut tidak
+                            membuat kami berhenti menjadi satu kesatuan.
+                            Kami belajar untuk menyelesaikan masalah,
+                            saling memaafkan, dan kembali menjadi satu tim.
+                        </p>
+
+                        <p>
+                            Bagi kami,
+                            <strong>
+                                X-9 bukan hanya nama kelas.
+                            </strong>
+                            X-9 adalah identitas, tempat berkumpul, tempat
+                            bertumbuh, dan tempat menyimpan banyak kenangan.
+                            Setiap anggota memiliki peran masing-masing
+                            dan setiap orang memberikan warna yang berbeda.
+                        </p>
+
+                        <div class="about-features">
+
+                            <div class="feature-item">
+
+                                <div class="feature-icon">
+                                    01
+                                </div>
+
+                                <div>
+
+                                    <h4>
+                                        Solid
+                                    </h4>
+
+                                    <p>
+                                        Selalu berusaha berdiri bersama
+                                        dalam keadaan apa pun.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="feature-item">
+
+                                <div class="feature-icon">
+                                    02
+                                </div>
+
+                                <div>
+
+                                    <h4>
+                                        Kompak
+                                    </h4>
+
+                                    <p>
+                                        Mampu bekerja sama dan saling
+                                        melengkapi.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="feature-item">
+
+                                <div class="feature-icon">
+                                    03
+                                </div>
+
+                                <div>
+
+                                    <h4>
+                                        Kreatif
+                                    </h4>
+
+                                    <p>
+                                        Selalu mempunyai ide dan cara
+                                        baru untuk berkembang.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="feature-item">
+
+                                <div class="feature-icon">
+                                    04
+                                </div>
+
+                                <div>
+
+                                    <h4>
+                                        Berprestasi
+                                    </h4>
+
+                                    <p>
+                                        Terus berusaha memberikan hasil
+                                        terbaik.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= NILAI KELAS ================= -->
+
+        <section class="values" id="values">
+
+            <div class="section-container">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-label">
+                        Our Values
+                    </div>
+
+                    <h2>
+                        Apa yang membuat kami
+                        <span class="gradient-text">
+                            berbeda?
+                        </span>
+                    </h2>
+
+                    <p>
+                        Empat hal yang menjadi bagian penting dari
+                        identitas kelas X-9.
+                    </p>
+
+                </div>
+
+
+                <div class="values-grid">
+
+                    <div class="value-card reveal">
+
+                        <div class="value-number">
+                            01 / SOLIDARITY
+                        </div>
+
+                        <div class="value-icon">
+                            🤝
+                        </div>
+
+                        <h3>
+                            Solidaritas
+                        </h3>
+
+                        <p>
+                            Kami selalu berusaha untuk saling membantu,
+                            mendukung, dan tidak meninggalkan satu sama
+                            lain ketika menghadapi kesulitan.
+                        </p>
+
+                    </div>
+
+
+                    <div class="value-card reveal">
+
+                        <div class="value-number">
+                            02 / TOGETHER
+                        </div>
+
+                        <div class="value-icon">
+                            ⚡
+                        </div>
+
+                        <h3>
+                            Kekompakan
+                        </h3>
+
+                        <p>
+                            Perbedaan bukan alasan untuk terpisah.
+                            Justru dengan perbedaan, kami bisa saling
+                            melengkapi dan menjadi tim yang lebih kuat.
+                        </p>
+
+                    </div>
+
+
+                    <div class="value-card reveal">
+
+                        <div class="value-number">
+                            03 / GROWTH
+                        </div>
+
+                        <div class="value-icon">
+                            🚀
+                        </div>
+
+                        <h3>
+                            Perkembangan
+                        </h3>
+
+                        <p>
+                            Kami ingin terus berkembang, baik dalam
+                            akademik, kreativitas, organisasi, maupun
+                            kemampuan bekerja sama.
+                        </p>
+
+                    </div>
+
+
+                    <div class="value-card reveal">
+
+                        <div class="value-number">
+                            04 / MEMORIES
+                        </div>
+
+                        <div class="value-icon">
+                            ✨
+                        </div>
+
+                        <h3>
+                            Kenangan
+                        </h3>
+
+                        <p>
+                            Setiap momen kecil bersama akan menjadi bagian
+                            dari cerita besar yang suatu hari nanti akan
+                            kami kenang.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STATISTIK ================= -->
+
+        <section class="stats">
+
+            <div class="section-container">
+
+                <div class="stats-grid">
+
+                    <div class="stat-box reveal">
+
+                        <div class="stat-number">
+                            36
+                        </div>
+
+                        <div class="stat-label">
+                            Anggota Kelas
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-box reveal">
+
+                        <div class="stat-number">
+                            1
+                        </div>
+
+                        <div class="stat-label">
+                            Keluarga X-9
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-box reveal">
+
+                        <div class="stat-number">
+                            100%
+                        </div>
+
+                        <div class="stat-label">
+                            Semangat
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-box reveal">
+
+                        <div class="stat-number">
+                            ∞
+                        </div>
+
+                        <div class="stat-label">
+                            Kenangan
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ANGGOTA ================= -->
+
+        <section class="members" id="members">
+
+            <div class="section-container">
+
+                <div class="members-top">
+
+                    <div class="section-heading">
+
+                        <div class="section-label">
+                            Class Members
+                        </div>
+
+                        <h2>
+                            Anggota
+                            <span class="gradient-text">
+                                X-9
+                            </span>
+                        </h2>
+
+                        <p>
+                            Inilah orang-orang yang menjadi bagian dari
+                            cerita dan perjalanan kelas X-9.
+                        </p>
+
+                    </div>
+
+                    <div class="member-count">
+                        36 Anggota
+                    </div>
+
+                </div>
+
+
+                <div class="members-grid">
+
+                    <script>
+                        const members = [
+                            ["Vino", 1],
+                            ["Amora", 2],
+                            ["Cencen", 3],
+                            ["Cathy", 4],
+                            ["Callie", 5],
+                            ["Cherry", 6],
+                            ["Kaia", 7],
+                            ["Louise", 8],
+                            ["Flo", 9],
+                            ["1Ratya", 10],
+                            ["Geon", 11],
+                            ["Joice", 12],
+                            ["Josh", 13],
+                            ["Ale", 14],
+                            ["Kate", 15],
+                            ["Keiko", 16],
+                            ["Ken", 17],
+                            ["Pelangi", 18],
+                            ["Marvel", 19],
+                            ["Matthew", 20],
+                            ["Melona", 21],
+                            ["Michael", 22],
+                            ["Tata", 23],
+                            ["Naufal", 24],
+                            ["Nema", 25],
+                            ["Nolan", 26],
+                            ["Quin", 27],
+                            ["Raphael", 28],
+                            ["Revan", 29],
+                            ["Rifka", 30],
+                            ["Kenny", 31],
+                            ["Steffi", 32],
+                            ["Tegar", 33],
+                            ["Xylon", 34],
+                            ["Erine", 35],
+                            ["Laura", 36]
+                        ];
+
+                        document.write(
+                            members.map(member => `
+                                <div class="member-card reveal">
+
+                                    <div class="member-number">
+                                        ${String(member[1]).padStart(2, "0")}
+                                    </div>
+
+                                    <div class="member-info">
+
+                                        <h3>
+                                            ${member[0]}
+                                        </h3>
+
+                                        <span>
+                                            Member #${member[1]}
+                                        </span>
+
+                                    </div>
+
+                                </div>
+                            `).join("")
+                        );
+                    </script>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= QUOTE ================= -->
+
+        <section class="quote-section">
+
+            <div class="quote-content reveal">
+
+                <h2>
+                    "Berbeda karakter,
+                    <br>
+                    satu cerita."
+                </h2>
+
+                <p>
+                    Karena yang membuat X-9 spesial bukan karena kami
+                    semua sama, tetapi karena kami mampu menjadi satu
+                    meskipun memiliki banyak perbedaan.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= AKTIVITAS ================= -->
+
+        <section class="activities" id="activities">
+
+            <div class="section-container">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-label">
+                        Our Journey
+                    </div>
+
+                    <h2>
+                        Cerita & Aktivitas
+                        <span class="gradient-text">
+                            X-9
+                        </span>
+                    </h2>
+
+                    <p>
+                        Banyak hal yang dapat menjadi bagian dari
+                        perjalanan sebuah kelas.
+                    </p>
+
+                </div>
+
+
+                <div class="activity-grid">
+
+                    <div class="activity-card reveal">
+
+                        <div class="activity-top">
+
+                            <div class="activity-icon">
+                                📚
+                            </div>
+
+                            <div class="activity-number">
+                                01
+                            </div>
+
+                        </div>
+
+                        <h3>
+                            Belajar Bersama
+                        </h3>
+
+                        <p>
+                            Menghadapi pelajaran, tugas, ujian, dan
+                            berbagai tantangan akademik dengan saling
+                            membantu dan berbagi pengetahuan.
+                        </p>
+
+                    </div>
+
+
+                    <div class="activity-card reveal">
+
+                        <div class="activity-top">
+
+                            <div class="activity-icon">
+                                🎉
+                            </div>
+
+                            <div class="activity-number">
+                                02
+                            </div>
+
+                        </div>
+
+                        <h3>
+                            Momen Bersama
+                        </h3>
+
+                        <p>
+                            Dari candaan sederhana sampai momen besar,
+                            semuanya menjadi kenangan yang membuat
+                            perjalanan X-9 semakin berwarna.
+                        </p>
+
+                    </div>
+
+
+                    <div class="activity-card reveal">
+
+                        <div class="activity-top">
+
+                            <div class="activity-icon">
+                                🏆
+                            </div>
+
+                            <div class="activity-number">
+                                03
+                            </div>
+
+                        </div>
+
+                        <h3>
+                            Meraih Prestasi
+                        </h3>
+
+                        <p>
+                            Berusaha memberikan yang terbaik dalam
+                            berbagai kegiatan dan menunjukkan bahwa
+                            X-9 mampu memberikan kontribusi positif.
+                        </p>
+
+                    </div>
+
+
+                    <div class="activity-card reveal">
+
+                        <div class="activity-top">
+
+                            <div class="activity-icon">
+                                💡
+                            </div>
+
+                            <div class="activity-number">
+                                04
+                            </div>
+
+                        </div>
+
+                        <h3>
+                            Ide & Kreativitas
+                        </h3>
+
+                        <p>
+                            Setiap anggota memiliki ide dan kemampuan
+                            yang berbeda. Semua itu dapat digabungkan
+                            menjadi sesuatu yang lebih besar.
+                        </p>
+
+                    </div>
+
+
+                    <div class="activity-card reveal">
+
+                        <div class="activity-top">
+
+                            <div class="activity-icon">
+                                🤝
+                            </div>
+
+                            <div class="activity-number">
+                                05
+                            </div>
+
+                        </div>
+
+                        <h3>
+                            Kerja Sama
+                        </h3>
+
+                        <p>
+                            Ketika semua anggota bekerja bersama dengan
+                            satu tujuan, hal yang terlihat sulit dapat
+                            menjadi lebih mudah untuk diselesaikan.
+                        </p>
+
+                    </div>
+
+
+                    <div class="activity-card reveal">
+
+                        <div class="activity-top">
+
+                            <div class="activity-icon">
+                                🌟
+                            </div>
+
+                            <div class="activity-number">
+                                06
+                            </div>
+
+                        </div>
+
+                        <h3>
+                            Menciptakan Kenangan
+                        </h3>
+
+                        <p>
+                            Setiap hari adalah kesempatan untuk
+                            menciptakan cerita baru yang nantinya akan
+                            menjadi kenangan berharga bagi seluruh
+                            anggota X-9.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="cta">
+
+            <div class="cta-box reveal">
+
+                <div class="cta-content">
+
+                    <h2>
+                        X-9, More Than A Class.
+                    </h2>
+
+                    <p>
+                        Kami datang dari latar belakang yang berbeda,
+                        memiliki karakter yang berbeda, tetapi
+                        dipertemukan dalam satu kelas dan satu perjalanan.
+                        Inilah cerita kami.
+                    </p>
+
+                    <a href="#members" class="btn btn-primary">
+                        Kenali 36 Anggota →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+
+                    <a href="#home" class="logo">
+
+                        <div class="logo-icon">
+                            <span>X9</span>
+                        </div>
+
+                        <span>
+                            CLASS X-9
+                        </span>
+
+                    </a>
+
+                    <p>
+                        Website resmi kelas X-9 yang menjadi tempat
+                        untuk mengenal, menyimpan cerita, dan
+                        memperkenalkan keluarga besar X-9.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h3 class="footer-title">
+                        NAVIGASI
+                    </h3>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="#home">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#about">
+                                Tentang Kelas
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#values">
+                                Nilai Kelas
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#members">
+                                Anggota
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#activities">
+                                Aktivitas
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div>
+
+                    <h3 class="footer-title">
+                        X-9
+                    </h3>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="#about">
+                                Our Story
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#members">
+                                Our Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#activities">
+                                Our Journey
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#home">
+                                Back to Home
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span id="copyright">
+                    © 2026 X-9 Class. All rights reserved.
+                </span>
+
+                <span>
+                    Made with ❤️ by X-9
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- BACK TO TOP -->
+
+    <button
+        class="back-top"
+        id="backTop"
+        aria-label="Kembali ke atas"
+    >
+        ↑
+    </button>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* NAVBAR */
+
+        const navbar =
+            document.getElementById("navbar");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+
+        });
+
+
+        /* MOBILE MENU */
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navMenu =
+            document.getElementById("navMenu");
+
+        menuToggle.addEventListener("click", () => {
+
+            navMenu.classList.toggle("active");
+
+            if (
+                navMenu.classList.contains("active")
+            ) {
+                menuToggle.textContent = "✕";
+            } else {
+                menuToggle.textContent = "☰";
+            }
+
+        });
+
+
+        /* CLOSE MOBILE MENU */
+
+        document.querySelectorAll(
+            ".nav-menu a"
+        ).forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navMenu.classList.remove("active");
+
+                menuToggle.textContent = "☰";
+
+            });
+
+        });
+
+
+        /* SCROLL REVEAL */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const revealObserver =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add(
+                                "active"
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(element => {
+
+            revealObserver.observe(element);
+
+        });
+
+
+        /* BACK TO TOP */
+
+        const backTop =
+            document.getElementById("backTop");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 600) {
+
+                backTop.classList.add("show");
+
+            } else {
+
+                backTop.classList.remove("show");
+
+            }
+
+        });
+
+
+        backTop.addEventListener("click", () => {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        });
+
+
+        /* SMOOTH SCROLL */
+
+        document.querySelectorAll(
+            'a[href^="#"]'
+        ).forEach(anchor => {
+
+            anchor.addEventListener(
+                "click",
+                function(event) {
+
+                    const target =
+                        document.querySelector(
+                            this.getAttribute("href")
+                        );
+
+                    if (target) {
+
+                        event.preventDefault();
+
+                        target.scrollIntoView({
+
+                            behavior: "smooth",
+
+                            block: "start"
+
+                        });
+
+                    }
+
+                }
+            );
+
+        });
+
+
+        /* MEMBER ANIMATION */
+
+        document.querySelectorAll(
+            ".member-card"
+        ).forEach((card, index) => {
+
+            card.style.transitionDelay =
+                `${(index % 4) * 0.05}s`;
+
+        });
+
+
+        /* ACTIVITY ANIMATION */
+
+        document.querySelectorAll(
+            ".activity-card"
+        ).forEach((card, index) => {
+
+            card.style.transitionDelay =
+                `${(index % 3) * 0.08}s`;
+
+        });
+
+
+        /* YEAR */
+
+        document.getElementById(
+            "copyright"
+        ).innerHTML =
+            `© ${new Date().getFullYear()} X-9 Class. All rights reserved.`;
+
+    </script>
+
+</body>
+</html>

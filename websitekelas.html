@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Website resmi kelas X-9 - Kelas yang solid, kompak, kreatif, dan terbaik.">
-    <meta name="theme-color" content="#0f172a">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Website resmi kelas X-9 - Kelas yang solid, kompak, kreatif, dan terbaik." />
+    <meta name="theme-color" content="#0f172a" />
 
-    <title>X-9 | Kelas Tersolid & Terbaik</title>
+    <title>X-9 Invictus | Kelas Tersolid & Terbaik</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
     <style>
+        /* ============================================================
+                   RESET & ROOT
+                   ============================================================ */
         * {
             margin: 0;
             padding: 0;
@@ -26,23 +29,15 @@
             --secondary: #8b5cf6;
             --pink: #ec4899;
             --cyan: #06b6d4;
-
             --dark: #0f172a;
             --dark-2: #111827;
             --dark-3: #1e293b;
-
             --light: #f8fafc;
             --white: #ffffff;
             --gray: #64748b;
             --gray-light: #e2e8f0;
 
-            --gradient: linear-gradient(
-                135deg,
-                #6366f1 0%,
-                #8b5cf6 50%,
-                #ec4899 100%
-            );
-
+            --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
             --shadow: 0 20px 50px rgba(15, 23, 42, 0.10);
             --shadow-hover: 0 25px 70px rgba(99, 102, 241, 0.20);
         }
@@ -55,7 +50,10 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: "Poppins", sans-serif;
             line-height: 1.2;
         }
@@ -72,18 +70,17 @@
         ::-webkit-scrollbar {
             width: 10px;
         }
-
         ::-webkit-scrollbar-track {
             background: #e2e8f0;
         }
-
         ::-webkit-scrollbar-thumb {
             background: var(--gradient);
             border-radius: 50px;
         }
 
-        /* ================= NAVBAR ================= */
-
+        /* ============================================================
+                   NAVBAR
+                   ============================================================ */
         .navbar {
             position: fixed;
             top: 0;
@@ -91,7 +88,7 @@
             width: 100%;
             z-index: 9999;
             padding: 18px 5%;
-            transition: 0.3s ease;
+            transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .navbar.scrolled {
@@ -128,8 +125,11 @@
             justify-content: center;
             background: var(--gradient);
             box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+            transition: transform 0.3s ease;
         }
-
+        .logo-icon:hover {
+            transform: scale(1.05) rotate(-2deg);
+        }
         .logo-icon span {
             font-size: 1.1rem;
             font-weight: 800;
@@ -146,12 +146,8 @@
             color: rgba(255, 255, 255, 0.8);
             font-size: 0.92rem;
             font-weight: 600;
-            transition: 0.3s;
+            transition: 0.3s ease;
             position: relative;
-        }
-
-        .nav-menu a:hover {
-            color: white;
         }
 
         .nav-menu a::after {
@@ -162,9 +158,12 @@
             width: 0;
             height: 2px;
             background: white;
-            transition: 0.3s;
+            transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
+        .nav-menu a:hover {
+            color: white;
+        }
         .nav-menu a:hover::after {
             width: 100%;
         }
@@ -178,45 +177,46 @@
             cursor: pointer;
         }
 
-        /* ================= HERO ================= */
-
+        /* ============================================================
+                   HERO - Dengan Background Foto
+                   ============================================================ */
         .hero {
             min-height: 100vh;
             position: relative;
             overflow: hidden;
-            background:
-                radial-gradient(
-                    circle at 15% 20%,
-                    rgba(99, 102, 241, 0.35),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 85% 80%,
-                    rgba(236, 72, 153, 0.30),
-                    transparent 30%
-                ),
-                #080d1c;
             color: white;
             display: flex;
             align-items: center;
+            background: #080d1c;
         }
 
-        .hero::before {
-            content: "";
+        /* Background foto dengan overlay gelap */
+        .hero-bg-image {
             position: absolute;
             inset: 0;
-            background-image:
-                linear-gradient(
-                    rgba(255,255,255,0.025) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,0.025) 1px,
-                    transparent 1px
-                );
-            background-size: 50px 50px;
-            mask-image: linear-gradient(to bottom, black, transparent);
+            z-index: 0;
+            background-image: url('foto.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.35) saturate(0.7);
+            transform: scale(1.05);
+            transition: transform 8s ease;
+        }
+
+        .hero:hover .hero-bg-image {
+            transform: scale(1);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.25), transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(236, 72, 153, 0.20), transparent 40%),
+                linear-gradient(to bottom, rgba(8, 13, 28, 0.4), rgba(8, 13, 28, 0.8));
         }
 
         .hero-container {
@@ -253,23 +253,53 @@
             border-radius: 50%;
             background: #22c55e;
             box-shadow: 0 0 15px #22c55e;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.4);
+                opacity: 0.6;
+            }
         }
 
         .hero h1 {
             font-size: clamp(3.5rem, 8vw, 7rem);
             letter-spacing: -5px;
             margin-bottom: 20px;
+            animation: fade-up 1s ease forwards;
+        }
+
+        .hero h1 .sub-title {
+            display: block;
+            font-size: clamp(1.2rem, 2vw, 2rem);
+            letter-spacing: 8px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 4px;
+            text-shadow: 0 0 40px rgba(99, 102, 241, 0.3);
         }
 
         .gradient-text {
-            background: linear-gradient(
-                90deg,
-                #818cf8,
-                #c084fc,
-                #f472b6
-            );
+            background: linear-gradient(90deg, #818cf8, #c084fc, #f472b6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-size: 200% 100%;
+            animation: shimmer 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
         }
 
         .hero-description {
@@ -277,12 +307,16 @@
             color: #cbd5e1;
             font-size: 1.08rem;
             margin-bottom: 35px;
+            animation: fade-up 1s ease 0.1s forwards;
+            opacity: 0;
         }
 
         .hero-buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
+            animation: fade-up 1s ease 0.2s forwards;
+            opacity: 0;
         }
 
         .btn {
@@ -293,9 +327,11 @@
             padding: 14px 24px;
             border-radius: 14px;
             font-weight: 700;
-            transition: 0.3s;
+            transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             cursor: pointer;
             border: none;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary {
@@ -305,7 +341,7 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-4px);
+            transform: translateY(-4px) scale(1.02);
             box-shadow: 0 20px 45px rgba(99, 102, 241, 0.45);
         }
 
@@ -317,12 +353,23 @@
 
         .btn-outline:hover {
             background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-4px);
+            transform: translateY(-4px) scale(1.02);
         }
 
+        /* ---- hero card ---- */
         .hero-card-wrapper {
             position: relative;
-            animation: float 5s ease-in-out infinite;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-18px);
+            }
         }
 
         .hero-card {
@@ -331,9 +378,15 @@
             background: rgba(255, 255, 255, 0.07);
             border: 1px solid rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(20px);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
             position: relative;
             overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .hero-card:hover {
+            transform: scale(1.01) rotate(1deg);
+            box-shadow: 0 40px 90px rgba(0, 0, 0, 0.35);
         }
 
         .hero-card::before {
@@ -347,6 +400,16 @@
             opacity: 0.4;
             top: -80px;
             right: -80px;
+            animation: blob-move 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes blob-move {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(30px, -20px) scale(1.2);
+            }
         }
 
         .class-symbol {
@@ -358,9 +421,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 20px 50px rgba(99,102,241,0.35);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.35);
             font-size: 2.3rem;
             font-weight: 800;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .hero-card:hover .class-symbol {
+            transform: rotate(6deg) scale(1.05);
+            box-shadow: 0 25px 60px rgba(99, 102, 241, 0.5);
         }
 
         .hero-card h2 {
@@ -369,7 +438,7 @@
             margin-bottom: 8px;
         }
 
-        .hero-card > p {
+        .hero-card>p {
             text-align: center;
             color: #94a3b8;
             margin-bottom: 25px;
@@ -383,9 +452,15 @@
 
         .mini-stat {
             padding: 18px;
-            background: rgba(255,255,255,0.06);
+            background: rgba(255, 255, 255, 0.06);
             border-radius: 16px;
             text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .mini-stat:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-3px);
         }
 
         .mini-stat strong {
@@ -399,32 +474,20 @@
             font-size: 0.78rem;
         }
 
-        .floating-shape {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.6;
+        @keyframes fade-up {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .shape-1 {
-            width: 100px;
-            height: 100px;
-            background: #ec4899;
-            top: 15%;
-            left: 5%;
-            filter: blur(60px);
-        }
-
-        .shape-2 {
-            width: 140px;
-            height: 140px;
-            background: #06b6d4;
-            bottom: 10%;
-            right: 5%;
-            filter: blur(80px);
-        }
-
-        /* ================= GENERAL ================= */
-
+        /* ============================================================
+                   SECTION HEADING
+                   ============================================================ */
         section {
             padding: 110px 5%;
         }
@@ -459,10 +522,12 @@
             color: var(--gray);
         }
 
-        /* ================= ABOUT ================= */
-
+        /* ============================================================
+                   ABOUT - Efek zoom saat scroll
+                   ============================================================ */
         .about {
             background: white;
+            overflow: hidden;
         }
 
         .about-grid {
@@ -492,27 +557,51 @@
             justify-content: center;
             text-align: center;
             box-shadow: var(--shadow-hover);
-            transform: rotate(-4deg);
+            transform: rotate(-4deg) scale(0.92);
             position: relative;
             overflow: hidden;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.6s ease;
+        }
+
+        .about-main-card.zoom-in {
+            transform: rotate(-2deg) scale(1);
+        }
+
+        .about-main-card:hover {
+            transform: rotate(-1deg) scale(1.02);
+            box-shadow: 0 35px 80px rgba(99, 102, 241, 0.35);
         }
 
         .about-main-card::before,
         .about-main-card::after {
             content: "";
             position: absolute;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 50%;
+            animation: ripple 6s ease-in-out infinite;
         }
 
         .about-main-card::before {
             width: 350px;
             height: 350px;
+            animation-delay: 0s;
         }
 
         .about-main-card::after {
             width: 500px;
             height: 500px;
+            animation-delay: -2s;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
         }
 
         .about-main-card .big-x {
@@ -527,7 +616,6 @@
             position: relative;
             z-index: 2;
         }
-
         .about-main-card p {
             position: relative;
             z-index: 2;
@@ -545,6 +633,12 @@
             box-shadow: var(--shadow);
             border: 1px solid var(--gray-light);
             transform: rotate(5deg);
+            transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .about-small-card:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: var(--shadow-hover);
         }
 
         .about-small-card strong {
@@ -568,8 +662,6 @@
             font-weight: 800;
         }
 
-        /* WALI KELAS */
-
         .homeroom-teacher {
             display: inline-flex;
             align-items: center;
@@ -577,16 +669,18 @@
             padding: 11px 18px;
             margin-bottom: 22px;
             border-radius: 50px;
-            background: linear-gradient(
-                135deg,
-                #ede9fe,
-                #fce7f3
-            );
+            background: linear-gradient(135deg, #ede9fe, #fce7f3);
             border: 1px solid #ddd6fe;
             color: #6366f1;
             font-size: 0.9rem;
             font-weight: 700;
-            box-shadow: 0 8px 25px rgba(99,102,241,0.08);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.08);
+            transition: 0.4s ease;
+        }
+
+        .homeroom-teacher:hover {
+            transform: translateX(6px);
+            box-shadow: 0 12px 35px rgba(99, 102, 241, 0.15);
         }
 
         .homeroom-teacher .teacher-icon {
@@ -620,6 +714,13 @@
             border-radius: 17px;
             background: #f8fafc;
             border: 1px solid #eef2f7;
+            transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-4px);
+            border-color: #c7d2fe;
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.08);
         }
 
         .feature-icon {
@@ -645,8 +746,9 @@
             margin: 0;
         }
 
-        /* ================= VALUES ================= */
-
+        /* ============================================================
+                   VALUES
+                   ============================================================ */
         .values {
             background: #f1f5f9;
         }
@@ -662,12 +764,35 @@
             padding: 30px 25px;
             border-radius: 22px;
             border: 1px solid #e5e7eb;
-            transition: 0.35s;
+            transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 22px;
+            background: var(--gradient);
+            opacity: 0;
+            transition: 0.4s ease;
+            z-index: 0;
+        }
+
+        .value-card:hover::after {
+            opacity: 0.04;
         }
 
         .value-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.01);
             box-shadow: var(--shadow-hover);
+            border-color: transparent;
+        }
+
+        .value-card>* {
+            position: relative;
+            z-index: 1;
         }
 
         .value-number {
@@ -688,6 +813,11 @@
             color: white;
             font-size: 1.3rem;
             margin-bottom: 20px;
+            transition: 0.4s ease;
+        }
+
+        .value-card:hover .value-icon {
+            transform: rotate(8deg) scale(1.1);
         }
 
         .value-card h3 {
@@ -699,8 +829,9 @@
             color: var(--gray);
         }
 
-        /* ================= STATS ================= */
-
+        /* ============================================================
+                   STATS
+                   ============================================================ */
         .stats {
             background: var(--dark);
             color: white;
@@ -716,7 +847,12 @@
         .stat-box {
             text-align: center;
             padding: 30px;
-            border-right: 1px solid rgba(255,255,255,0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s ease;
+        }
+
+        .stat-box:hover {
+            background: rgba(255, 255, 255, 0.03);
         }
 
         .stat-box:last-child {
@@ -730,6 +866,12 @@
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: inline-block;
+            transition: 0.3s ease;
+        }
+
+        .stat-box:hover .stat-number {
+            transform: scale(1.08);
         }
 
         .stat-label {
@@ -737,8 +879,9 @@
             font-size: 0.9rem;
         }
 
-        /* ================= MEMBERS ================= */
-
+        /* ============================================================
+                   MEMBERS
+                   ============================================================ */
         .members {
             background: white;
         }
@@ -763,6 +906,13 @@
             color: var(--gray);
             font-weight: 700;
             white-space: nowrap;
+            transition: 0.3s ease;
+        }
+
+        .member-count:hover {
+            background: var(--gradient);
+            color: white;
+            transform: scale(1.05);
         }
 
         .members-grid {
@@ -779,14 +929,14 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            transition: 0.3s;
+            transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .member-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.02);
             background: white;
             border-color: #c7d2fe;
-            box-shadow: 0 15px 35px rgba(99,102,241,0.12);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.12);
         }
 
         .member-number {
@@ -801,6 +951,11 @@
             justify-content: center;
             font-size: 0.8rem;
             font-weight: 800;
+            transition: 0.3s ease;
+        }
+
+        .member-card:hover .member-number {
+            transform: rotate(6deg) scale(1.1);
         }
 
         .member-info h3 {
@@ -813,19 +968,34 @@
             color: var(--gray);
         }
 
-        /* ================= QUOTE ================= */
-
+        /* ============================================================
+                   QUOTE
+                   ============================================================ */
         .quote-section {
             padding: 120px 5%;
-            background: linear-gradient(
-                135deg,
-                #4f46e5,
-                #7c3aed,
-                #db2777
-            );
+            background: linear-gradient(135deg, #4f46e5, #7c3aed, #db2777);
             color: white;
             position: relative;
             overflow: hidden;
+        }
+
+        .quote-section::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            animation: quote-glow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes quote-glow {
+            0% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 1;
+            }
         }
 
         .quote-content {
@@ -833,6 +1003,7 @@
             margin: auto;
             position: relative;
             text-align: center;
+            z-index: 1;
         }
 
         .quote-content h2 {
@@ -845,8 +1016,9 @@
             opacity: 0.85;
         }
 
-        /* ================= ACTIVITIES ================= */
-
+        /* ============================================================
+                   ACTIVITIES
+                   ============================================================ */
         .activities {
             background: #f8fafc;
         }
@@ -862,12 +1034,13 @@
             border-radius: 25px;
             padding: 30px;
             border: 1px solid #e5e7eb;
-            transition: 0.3s;
+            transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .activity-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-8px) scale(1.01);
             box-shadow: var(--shadow);
+            border-color: #c7d2fe;
         }
 
         .activity-top {
@@ -887,12 +1060,25 @@
             align-items: center;
             justify-content: center;
             font-size: 1.3rem;
+            transition: 0.4s ease;
+        }
+
+        .activity-card:hover .activity-icon {
+            transform: rotate(6deg) scale(1.08);
+            background: var(--gradient);
+            color: white;
         }
 
         .activity-number {
             color: #cbd5e1;
             font-size: 2rem;
             font-weight: 800;
+            transition: 0.3s ease;
+        }
+
+        .activity-card:hover .activity-number {
+            color: var(--primary);
+            transform: scale(1.1);
         }
 
         .activity-card h3 {
@@ -904,8 +1090,9 @@
             font-size: 0.88rem;
         }
 
-        /* ================= CTA ================= */
-
+        /* ============================================================
+                   CTA
+                   ============================================================ */
         .cta {
             background: white;
         }
@@ -920,6 +1107,21 @@
             position: relative;
             overflow: hidden;
             text-align: center;
+            transition: 0.4s ease;
+        }
+
+        .cta-box:hover {
+            box-shadow: 0 30px 80px rgba(15, 23, 42, 0.2);
+            transform: scale(1.005);
+        }
+
+        .cta-box::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.10), transparent 40%);
         }
 
         .cta-content {
@@ -938,8 +1140,9 @@
             margin: 0 auto 30px;
         }
 
-        /* ================= FOOTER ================= */
-
+        /* ============================================================
+                   FOOTER
+                   ============================================================ */
         footer {
             background: #070b16;
             color: white;
@@ -956,7 +1159,7 @@
             grid-template-columns: 1.5fr 1fr 1fr;
             gap: 60px;
             padding-bottom: 50px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .footer-brand p {
@@ -978,11 +1181,12 @@
 
         .footer-links a {
             color: #64748b;
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
         .footer-links a:hover {
             color: white;
+            transform: translateX(6px);
         }
 
         .footer-bottom {
@@ -994,8 +1198,14 @@
             font-size: 0.8rem;
         }
 
-        /* ================= BACK TOP ================= */
+        .footer-bottom .footer-credit {
+            color: #6366f1;
+            font-weight: 600;
+        }
 
+        /* ============================================================
+                   BACK TOP
+                   ============================================================ */
         .back-top {
             position: fixed;
             right: 25px;
@@ -1011,23 +1221,30 @@
             z-index: 999;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(20px);
-            transition: 0.3s;
-            box-shadow: 0 10px 30px rgba(99,102,241,0.3);
+            transform: translateY(20px) scale(0.8);
+            transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
         }
 
         .back-top.show {
             opacity: 1;
             visibility: visible;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
-        /* ================= ANIMATION ================= */
+        .back-top:hover {
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.45);
+        }
 
+        /* ============================================================
+                   REVEAL ANIMATION
+                   ============================================================ */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .reveal.active {
@@ -1035,20 +1252,10 @@
             transform: translateY(0);
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-
-        /* ================= RESPONSIVE ================= */
-
+        /* ============================================================
+                   RESPONSIVE
+                   ============================================================ */
         @media (max-width: 1000px) {
-
             .hero-container {
                 grid-template-columns: 1fr;
                 padding-top: 140px;
@@ -1098,7 +1305,6 @@
         }
 
         @media (max-width: 750px) {
-
             .navbar {
                 padding-left: 20px;
                 padding-right: 20px;
@@ -1117,12 +1323,12 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 20px;
-                background: rgba(15,23,42,0.98);
+                background: rgba(15, 23, 42, 0.98);
                 border-radius: 20px;
                 opacity: 0;
                 visibility: hidden;
                 transform: translateY(-10px);
-                transition: 0.3s;
+                transition: 0.3s ease;
             }
 
             .nav-menu.active {
@@ -1152,7 +1358,7 @@
             }
 
             .stat-box {
-                border-bottom: 1px solid rgba(255,255,255,0.1);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             .members-top {
@@ -1183,11 +1389,16 @@
 
             .footer-bottom {
                 flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 .sub-title {
+                letter-spacing: 4px;
+                font-size: 1rem;
             }
         }
 
         @media (max-width: 480px) {
-
             .hero h1 {
                 font-size: 3.4rem;
             }
@@ -1225,1276 +1436,449 @@
 </head>
 
 <body>
-
-    <!-- ================= NAVBAR ================= -->
-
+    <!-- ==================== NAVBAR ==================== -->
     <header class="navbar" id="navbar">
-
         <div class="nav-container">
-
             <a href="#home" class="logo">
-                <div class="logo-icon">
-                    <span>X9</span>
-                </div>
-
-                <span>CLASS X-9</span>
+                <div class="logo-icon"><span>X9</span></div>
+                <span>X-9 INVICTUS</span>
             </a>
-
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                aria-label="Buka menu"
-            >
-                ☰
-            </button>
-
+            <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
             <ul class="nav-menu" id="navMenu">
-
-                <li>
-                    <a href="#home">Home</a>
-                </li>
-
-                <li>
-                    <a href="#about">Tentang</a>
-                </li>
-
-                <li>
-                    <a href="#values">Nilai Kelas</a>
-                </li>
-
-                <li>
-                    <a href="#members">Anggota</a>
-                </li>
-
-                <li>
-                    <a href="#activities">Aktivitas</a>
-                </li>
-
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#values">Nilai Kelas</a></li>
+                <li><a href="#members">Anggota</a></li>
+                <li><a href="#activities">Aktivitas</a></li>
             </ul>
-
         </div>
-
     </header>
 
-
-    <!-- ================= HERO ================= -->
-
+    <!-- ==================== HERO ==================== -->
     <main>
-
         <section class="hero" id="home">
-
-            <div class="floating-shape shape-1"></div>
-            <div class="floating-shape shape-2"></div>
+            <!-- Background foto -->
+            <div class="hero-bg-image"></div>
 
             <div class="hero-container">
-
                 <div class="hero-content reveal">
-
                     <div class="hero-badge">
                         <span class="badge-dot"></span>
                         WELCOME TO OUR CLASS
                     </div>
-
                     <h1>
                         X-<span class="gradient-text">9</span>
+                        <span class="sub-title">INVICTUS</span>
                     </h1>
-
                     <p class="hero-description">
                         Sebuah kelas yang bukan hanya sekumpulan siswa
                         dalam satu ruangan, tetapi sebuah keluarga yang
                         tumbuh bersama, belajar bersama, tertawa bersama,
                         dan menciptakan cerita yang akan selalu dikenang.
                     </p>
-
                     <div class="hero-buttons">
-
-                        <a href="#about" class="btn btn-primary">
-                            Kenal Lebih Dekat →
-                        </a>
-
-                        <a href="#members" class="btn btn-outline">
-                            Lihat Anggota
-                        </a>
-
+                        <a href="#about" class="btn btn-primary">Kenal Lebih Dekat →</a>
+                        <a href="#members" class="btn btn-outline">Lihat Anggota</a>
                     </div>
-
                 </div>
-
 
                 <div class="hero-card-wrapper">
-
                     <div class="hero-card">
-
-                        <div class="class-symbol">
-                            X9
-                        </div>
-
-                        <h2>CLASS X-9</h2>
-
-                        <p>
-                            Solid • Kompak • Kreatif • Berprestasi
-                        </p>
-
+                        <div class="class-symbol">X9</div>
+                        <h2>X-9 INVICTUS</h2>
+                        <p>Solid • Kompak • Kreatif • Berprestasi</p>
                         <div class="mini-stats">
-
-                            <div class="mini-stat">
-                                <strong>36</strong>
-                                <span>Anggota</span>
-                            </div>
-
-                            <div class="mini-stat">
-                                <strong>1</strong>
-                                <span>Keluarga</span>
-                            </div>
-
-                            <div class="mini-stat">
-                                <strong>∞</strong>
-                                <span>Kenangan</span>
-                            </div>
-
-                            <div class="mini-stat">
-                                <strong>100%</strong>
-                                <span>Solid</span>
-                            </div>
-
+                            <div class="mini-stat"><strong>36</strong><span>Anggota</span></div>
+                            <div class="mini-stat"><strong>1</strong><span>Keluarga</span></div>
+                            <div class="mini-stat"><strong>∞</strong><span>Kenangan</span></div>
+                            <div class="mini-stat"><strong>100%</strong><span>Solid</span></div>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- ================= TENTANG KELAS ================= -->
-
+        <!-- ==================== ABOUT ==================== -->
         <section class="about" id="about">
-
             <div class="section-container">
-
                 <div class="section-heading reveal">
-
-                    <div class="section-label">
-                        About Our Class
-                    </div>
-
-                    <h2>
-                        Tentang <span class="gradient-text">X-9</span>
-                    </h2>
-
-                    <p>
-                        Mengenal lebih jauh siapa kami, bagaimana kami
-                        tumbuh, dan mengapa X-9 begitu spesial.
-                    </p>
-
+                    <div class="section-label">About Our Class</div>
+                    <h2>Tentang <span class="gradient-text">X-9 Invictus</span></h2>
+                    <p>Mengenal lebih jauh siapa kami, bagaimana kami tumbuh, dan mengapa X-9 begitu spesial.</p>
                 </div>
 
-
                 <div class="about-grid">
-
-                    <!-- VISUAL -->
-
                     <div class="about-visual reveal">
-
-                        <div class="about-main-card">
-
-                            <div class="big-x">
-                                X
-                            </div>
-
-                            <h3>
-                                X-9
-                            </h3>
-
-                            <p>
-                                One Class. One Family.
-                            </p>
-
+                        <div class="about-main-card" id="aboutCard">
+                            <div class="big-x">X</div>
+                            <h3>X-9</h3>
+                            <p>Invictus · Tak Terkalahkan</p>
                         </div>
-
-
                         <div class="about-small-card">
-
-                            <strong>
-                                36
-                            </strong>
-
-                            <span>
-                                orang dengan karakter berbeda,
-                                tetapi satu cerita.
-                            </span>
-
+                            <strong>36</strong>
+                            <span>orang dengan karakter berbeda, tetapi satu cerita.</span>
                         </div>
-
                     </div>
 
-
-                    <!-- CONTENT -->
-
                     <div class="about-content reveal">
-
-                        <h3>
-                            KAMI ADALAH KELAS X-9 YANG TERSOLID DAN TERBAIK
-                        </h3>
-
-
-                        <!-- WALI KELAS -->
+                        <h3>KAMI ADALAH KELAS X-9 INVICTUS YANG TERSOLID DAN TERBAIK</h3>
                         <div class="homeroom-teacher">
-
-                            <span class="teacher-icon">
-                                👨‍🏫
-                            </span>
-
-                            <span>
-                                Wali Kelas:
-                                <strong>
-                                    Bapak Windi
-                                </strong>
-                            </span>
-
+                            <span class="teacher-icon">👨‍🏫</span>
+                            <span>Wali Kelas: <strong>Bapak Windi</strong></span>
                         </div>
-
-
                         <p>
-                            <span class="highlight">
-                                X-9
-                            </span>
-                            adalah sebuah kelas yang terdiri dari berbagai
-                            macam karakter, kepribadian, kemampuan, dan
-                            cerita. Walaupun setiap anggota memiliki
-                            perbedaan, perbedaan tersebut justru membuat
-                            kelas ini menjadi semakin berwarna.
+                            <span class="highlight">X-9 Invictus</span> adalah sebuah kelas yang terdiri dari berbagai
+                            macam karakter, kepribadian, kemampuan, dan cerita. Walaupun setiap anggota memiliki
+                            perbedaan, perbedaan tersebut justru membuat kelas ini menjadi semakin berwarna.
                         </p>
-
                         <p>
-                            Kami percaya bahwa sebuah kelas bukan hanya
-                            tentang nilai, pelajaran, tugas, atau ujian.
-                            Lebih dari itu, kelas adalah tempat di mana kami
-                            belajar untuk saling menghargai, memahami,
+                            Kami percaya bahwa sebuah kelas bukan hanya tentang nilai, pelajaran, tugas, atau ujian.
+                            Lebih dari itu, kelas adalah tempat di mana kami belajar untuk saling menghargai, memahami,
                             membantu, dan bekerja sama.
                         </p>
-
                         <p>
-                            Di X-9, setiap hari menjadi kesempatan untuk
-                            menciptakan kenangan baru. Mulai dari belajar
-                            bersama, mengerjakan tugas, berdiskusi,
-                            bercanda, mengikuti kegiatan sekolah, hingga
+                            Di X-9 Invictus, setiap hari menjadi kesempatan untuk menciptakan kenangan baru. Mulai dari belajar
+                            bersama, mengerjakan tugas, berdiskusi, bercanda, mengikuti kegiatan sekolah, hingga
                             menghadapi berbagai tantangan bersama-sama.
                         </p>
-
                         <p>
-                            Kami mungkin tidak selalu sempurna. Terkadang
-                            ada perbedaan pendapat, kesalahpahaman, atau
-                            bahkan masalah kecil. Namun, hal tersebut tidak
-                            membuat kami berhenti menjadi satu kesatuan.
-                            Kami belajar untuk menyelesaikan masalah,
-                            saling memaafkan, dan kembali menjadi satu tim.
+                            Kami mungkin tidak selalu sempurna. Terkadang ada perbedaan pendapat, kesalahpahaman, atau
+                            bahkan masalah kecil. Namun, hal tersebut tidak membuat kami berhenti menjadi satu kesatuan.
+                            Kami belajar untuk menyelesaikan masalah, saling memaafkan, dan kembali menjadi satu tim.
                         </p>
-
                         <p>
-                            Bagi kami,
-                            <strong>
-                                X-9 bukan hanya nama kelas.
-                            </strong>
-                            X-9 adalah identitas, tempat berkumpul, tempat
-                            bertumbuh, dan tempat menyimpan banyak kenangan.
-                            Setiap anggota memiliki peran masing-masing
-                            dan setiap orang memberikan warna yang berbeda.
+                            Bagi kami, <strong>X-9 Invictus bukan hanya nama kelas.</strong> X-9 Invictus adalah identitas,
+                            tempat berkumpul, tempat bertumbuh, dan tempat menyimpan banyak kenangan. Setiap anggota
+                            memiliki peran masing-masing dan setiap orang memberikan warna yang berbeda.
                         </p>
 
                         <div class="about-features">
-
                             <div class="feature-item">
-
-                                <div class="feature-icon">
-                                    01
-                                </div>
-
-                                <div>
-
-                                    <h4>
-                                        Solid
-                                    </h4>
-
-                                    <p>
-                                        Selalu berusaha berdiri bersama
-                                        dalam keadaan apa pun.
-                                    </p>
-
-                                </div>
-
+                                <div class="feature-icon">01</div>
+                                <div><h4>Solid</h4><p>Selalu berusaha berdiri bersama dalam keadaan apa pun.</p></div>
                             </div>
-
-
                             <div class="feature-item">
-
-                                <div class="feature-icon">
-                                    02
-                                </div>
-
-                                <div>
-
-                                    <h4>
-                                        Kompak
-                                    </h4>
-
-                                    <p>
-                                        Mampu bekerja sama dan saling
-                                        melengkapi.
-                                    </p>
-
-                                </div>
-
+                                <div class="feature-icon">02</div>
+                                <div><h4>Kompak</h4><p>Mampu bekerja sama dan saling melengkapi.</p></div>
                             </div>
-
-
                             <div class="feature-item">
-
-                                <div class="feature-icon">
-                                    03
-                                </div>
-
-                                <div>
-
-                                    <h4>
-                                        Kreatif
-                                    </h4>
-
-                                    <p>
-                                        Selalu mempunyai ide dan cara
-                                        baru untuk berkembang.
-                                    </p>
-
-                                </div>
-
+                                <div class="feature-icon">03</div>
+                                <div><h4>Kreatif</h4><p>Selalu mempunyai ide dan cara baru untuk berkembang.</p></div>
                             </div>
-
-
                             <div class="feature-item">
-
-                                <div class="feature-icon">
-                                    04
-                                </div>
-
-                                <div>
-
-                                    <h4>
-                                        Berprestasi
-                                    </h4>
-
-                                    <p>
-                                        Terus berusaha memberikan hasil
-                                        terbaik.
-                                    </p>
-
-                                </div>
-
+                                <div class="feature-icon">04</div>
+                                <div><h4>Berprestasi</h4><p>Terus berusaha memberikan hasil terbaik.</p></div>
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- ================= NILAI KELAS ================= -->
-
+        <!-- ==================== VALUES ==================== -->
         <section class="values" id="values">
-
             <div class="section-container">
-
                 <div class="section-heading reveal">
-
-                    <div class="section-label">
-                        Our Values
-                    </div>
-
-                    <h2>
-                        Apa yang membuat kami
-                        <span class="gradient-text">
-                            berbeda?
-                        </span>
-                    </h2>
-
-                    <p>
-                        Empat hal yang menjadi bagian penting dari
-                        identitas kelas X-9.
-                    </p>
-
+                    <div class="section-label">Our Values</div>
+                    <h2>Apa yang membuat kami <span class="gradient-text">berbeda?</span></h2>
+                    <p>Empat hal yang menjadi bagian penting dari identitas kelas X-9 Invictus.</p>
                 </div>
-
-
                 <div class="values-grid">
-
                     <div class="value-card reveal">
-
-                        <div class="value-number">
-                            01 / SOLIDARITY
-                        </div>
-
-                        <div class="value-icon">
-                            🤝
-                        </div>
-
-                        <h3>
-                            Solidaritas
-                        </h3>
-
-                        <p>
-                            Kami selalu berusaha untuk saling membantu,
-                            mendukung, dan tidak meninggalkan satu sama
-                            lain ketika menghadapi kesulitan.
-                        </p>
-
+                        <div class="value-number">01 / SOLIDARITY</div>
+                        <div class="value-icon">🤝</div>
+                        <h3>Solidaritas</h3>
+                        <p>Kami selalu berusaha untuk saling membantu, mendukung, dan tidak meninggalkan satu sama lain
+                            ketika menghadapi kesulitan.</p>
                     </div>
-
-
                     <div class="value-card reveal">
-
-                        <div class="value-number">
-                            02 / TOGETHER
-                        </div>
-
-                        <div class="value-icon">
-                            ⚡
-                        </div>
-
-                        <h3>
-                            Kekompakan
-                        </h3>
-
-                        <p>
-                            Perbedaan bukan alasan untuk terpisah.
-                            Justru dengan perbedaan, kami bisa saling
-                            melengkapi dan menjadi tim yang lebih kuat.
-                        </p>
-
+                        <div class="value-number">02 / TOGETHER</div>
+                        <div class="value-icon">⚡</div>
+                        <h3>Kekompakan</h3>
+                        <p>Perbedaan bukan alasan untuk terpisah. Justru dengan perbedaan, kami bisa saling melengkapi dan
+                            menjadi tim yang lebih kuat.</p>
                     </div>
-
-
                     <div class="value-card reveal">
-
-                        <div class="value-number">
-                            03 / GROWTH
-                        </div>
-
-                        <div class="value-icon">
-                            🚀
-                        </div>
-
-                        <h3>
-                            Perkembangan
-                        </h3>
-
-                        <p>
-                            Kami ingin terus berkembang, baik dalam
-                            akademik, kreativitas, organisasi, maupun
-                            kemampuan bekerja sama.
-                        </p>
-
+                        <div class="value-number">03 / GROWTH</div>
+                        <div class="value-icon">🚀</div>
+                        <h3>Perkembangan</h3>
+                        <p>Kami ingin terus berkembang, baik dalam akademik, kreativitas, organisasi, maupun kemampuan
+                            bekerja sama.</p>
                     </div>
-
-
                     <div class="value-card reveal">
-
-                        <div class="value-number">
-                            04 / MEMORIES
-                        </div>
-
-                        <div class="value-icon">
-                            ✨
-                        </div>
-
-                        <h3>
-                            Kenangan
-                        </h3>
-
-                        <p>
-                            Setiap momen kecil bersama akan menjadi bagian
-                            dari cerita besar yang suatu hari nanti akan
-                            kami kenang.
-                        </p>
-
+                        <div class="value-number">04 / MEMORIES</div>
+                        <div class="value-icon">✨</div>
+                        <h3>Kenangan</h3>
+                        <p>Setiap momen kecil bersama akan menjadi bagian dari cerita besar yang suatu hari nanti akan kami
+                            kenang.</p>
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- ================= STATISTIK ================= -->
-
+        <!-- ==================== STATS ==================== -->
         <section class="stats">
-
             <div class="section-container">
-
                 <div class="stats-grid">
-
-                    <div class="stat-box reveal">
-
-                        <div class="stat-number">
-                            36
-                        </div>
-
-                        <div class="stat-label">
-                            Anggota Kelas
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat-box reveal">
-
-                        <div class="stat-number">
-                            1
-                        </div>
-
-                        <div class="stat-label">
-                            Keluarga X-9
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat-box reveal">
-
-                        <div class="stat-number">
-                            100%
-                        </div>
-
-                        <div class="stat-label">
-                            Semangat
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat-box reveal">
-
-                        <div class="stat-number">
-                            ∞
-                        </div>
-
-                        <div class="stat-label">
-                            Kenangan
-                        </div>
-
-                    </div>
-
+                    <div class="stat-box reveal"><div class="stat-number">36</div><div class="stat-label">Anggota Kelas</div></div>
+                    <div class="stat-box reveal"><div class="stat-number">1</div><div class="stat-label">Keluarga X-9</div></div>
+                    <div class="stat-box reveal"><div class="stat-number">100%</div><div class="stat-label">Semangat</div></div>
+                    <div class="stat-box reveal"><div class="stat-number">∞</div><div class="stat-label">Kenangan</div></div>
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- ================= ANGGOTA ================= -->
-
+        <!-- ==================== MEMBERS ==================== -->
         <section class="members" id="members">
-
             <div class="section-container">
-
                 <div class="members-top">
-
                     <div class="section-heading">
-
-                        <div class="section-label">
-                            Class Members
-                        </div>
-
-                        <h2>
-                            Anggota
-                            <span class="gradient-text">
-                                X-9
-                            </span>
-                        </h2>
-
-                        <p>
-                            Inilah orang-orang yang menjadi bagian dari
-                            cerita dan perjalanan kelas X-9.
-                        </p>
-
+                        <div class="section-label">Class Members</div>
+                        <h2>Anggota <span class="gradient-text">X-9 Invictus</span></h2>
+                        <p>Inilah orang-orang yang menjadi bagian dari cerita dan perjalanan kelas X-9 Invictus.</p>
                     </div>
-
-                    <div class="member-count">
-                        36 Anggota
-                    </div>
-
+                    <div class="member-count">36 Anggota</div>
                 </div>
-
-
-                <div class="members-grid">
-
-                    <script>
-                        const members = [
-                            ["Vino", 1],
-                            ["Amora", 2],
-                            ["Cencen", 3],
-                            ["Cathy", 4],
-                            ["Callie", 5],
-                            ["Cherry", 6],
-                            ["Kaia", 7],
-                            ["Louise", 8],
-                            ["Flo", 9],
-                            ["1Ratya", 10],
-                            ["Geon", 11],
-                            ["Joice", 12],
-                            ["Josh", 13],
-                            ["Ale", 14],
-                            ["Kate", 15],
-                            ["Keiko", 16],
-                            ["Ken", 17],
-                            ["Pelangi", 18],
-                            ["Marvel", 19],
-                            ["Matthew", 20],
-                            ["Melona", 21],
-                            ["Michael", 22],
-                            ["Tata", 23],
-                            ["Naufal", 24],
-                            ["Nema", 25],
-                            ["Nolan", 26],
-                            ["Quin", 27],
-                            ["Raphael", 28],
-                            ["Revan", 29],
-                            ["Rifka", 30],
-                            ["Kenny", 31],
-                            ["Steffi", 32],
-                            ["Tegar", 33],
-                            ["Xylon", 34],
-                            ["Erine", 35],
-                            ["Laura", 36]
-                        ];
-
-                        document.write(
-                            members.map(member => `
-                                <div class="member-card reveal">
-
-                                    <div class="member-number">
-                                        ${String(member[1]).padStart(2, "0")}
-                                    </div>
-
-                                    <div class="member-info">
-
-                                        <h3>
-                                            ${member[0]}
-                                        </h3>
-
-                                        <span>
-                                            Member #${member[1]}
-                                        </span>
-
-                                    </div>
-
-                                </div>
-                            `).join("")
-                        );
-                    </script>
-
+                <div class="members-grid" id="membersGrid">
+                    <!-- injected by JS -->
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- ================= QUOTE ================= -->
-
+        <!-- ==================== QUOTE ==================== -->
         <section class="quote-section">
-
             <div class="quote-content reveal">
-
-                <h2>
-                    "Berbeda karakter,
-                    <br>
-                    satu cerita."
-                </h2>
-
-                <p>
-                    Karena yang membuat X-9 spesial bukan karena kami
-                    semua sama, tetapi karena kami mampu menjadi satu
-                    meskipun memiliki banyak perbedaan.
-                </p>
-
+                <h2>"Berbeda karakter,<br>satu cerita."</h2>
+                <p>Karena yang membuat X-9 Invictus spesial bukan karena kami semua sama, tetapi karena kami mampu menjadi
+                    satu meskipun memiliki banyak perbedaan.</p>
             </div>
-
         </section>
 
-
-        <!-- ================= AKTIVITAS ================= -->
-
+        <!-- ==================== ACTIVITIES ==================== -->
         <section class="activities" id="activities">
-
             <div class="section-container">
-
                 <div class="section-heading reveal">
-
-                    <div class="section-label">
-                        Our Journey
-                    </div>
-
-                    <h2>
-                        Cerita & Aktivitas
-                        <span class="gradient-text">
-                            X-9
-                        </span>
-                    </h2>
-
-                    <p>
-                        Banyak hal yang dapat menjadi bagian dari
-                        perjalanan sebuah kelas.
-                    </p>
-
+                    <div class="section-label">Our Journey</div>
+                    <h2>Cerita & Aktivitas <span class="gradient-text">X-9 Invictus</span></h2>
+                    <p>Banyak hal yang dapat menjadi bagian dari perjalanan sebuah kelas.</p>
                 </div>
-
-
                 <div class="activity-grid">
-
                     <div class="activity-card reveal">
-
-                        <div class="activity-top">
-
-                            <div class="activity-icon">
-                                📚
-                            </div>
-
-                            <div class="activity-number">
-                                01
-                            </div>
-
-                        </div>
-
-                        <h3>
-                            Belajar Bersama
-                        </h3>
-
-                        <p>
-                            Menghadapi pelajaran, tugas, ujian, dan
-                            berbagai tantangan akademik dengan saling
-                            membantu dan berbagi pengetahuan.
-                        </p>
-
+                        <div class="activity-top"><div class="activity-icon">📚</div><div class="activity-number">01</div></div>
+                        <h3>Belajar Bersama</h3>
+                        <p>Menghadapi pelajaran, tugas, ujian, dan berbagai tantangan akademik dengan saling membantu dan
+                            berbagi pengetahuan.</p>
                     </div>
-
-
                     <div class="activity-card reveal">
-
-                        <div class="activity-top">
-
-                            <div class="activity-icon">
-                                🎉
-                            </div>
-
-                            <div class="activity-number">
-                                02
-                            </div>
-
-                        </div>
-
-                        <h3>
-                            Momen Bersama
-                        </h3>
-
-                        <p>
-                            Dari candaan sederhana sampai momen besar,
-                            semuanya menjadi kenangan yang membuat
-                            perjalanan X-9 semakin berwarna.
-                        </p>
-
+                        <div class="activity-top"><div class="activity-icon">🎉</div><div class="activity-number">02</div></div>
+                        <h3>Momen Bersama</h3>
+                        <p>Dari candaan sederhana sampai momen besar, semuanya menjadi kenangan yang membuat perjalanan X-9
+                            Invictus semakin berwarna.</p>
                     </div>
-
-
                     <div class="activity-card reveal">
-
-                        <div class="activity-top">
-
-                            <div class="activity-icon">
-                                🏆
-                            </div>
-
-                            <div class="activity-number">
-                                03
-                            </div>
-
-                        </div>
-
-                        <h3>
-                            Meraih Prestasi
-                        </h3>
-
-                        <p>
-                            Berusaha memberikan yang terbaik dalam
-                            berbagai kegiatan dan menunjukkan bahwa
-                            X-9 mampu memberikan kontribusi positif.
-                        </p>
-
+                        <div class="activity-top"><div class="activity-icon">🏆</div><div class="activity-number">03</div></div>
+                        <h3>Meraih Prestasi</h3>
+                        <p>Berusaha memberikan yang terbaik dalam berbagai kegiatan dan menunjukkan bahwa X-9 Invictus mampu
+                            memberikan kontribusi positif.</p>
                     </div>
-
-
                     <div class="activity-card reveal">
-
-                        <div class="activity-top">
-
-                            <div class="activity-icon">
-                                💡
-                            </div>
-
-                            <div class="activity-number">
-                                04
-                            </div>
-
-                        </div>
-
-                        <h3>
-                            Ide & Kreativitas
-                        </h3>
-
-                        <p>
-                            Setiap anggota memiliki ide dan kemampuan
-                            yang berbeda. Semua itu dapat digabungkan
-                            menjadi sesuatu yang lebih besar.
-                        </p>
-
+                        <div class="activity-top"><div class="activity-icon">💡</div><div class="activity-number">04</div></div>
+                        <h3>Ide & Kreativitas</h3>
+                        <p>Setiap anggota memiliki ide dan kemampuan yang berbeda. Semua itu dapat digabungkan menjadi
+                            sesuatu yang lebih besar.</p>
                     </div>
-
-
                     <div class="activity-card reveal">
-
-                        <div class="activity-top">
-
-                            <div class="activity-icon">
-                                🤝
-                            </div>
-
-                            <div class="activity-number">
-                                05
-                            </div>
-
-                        </div>
-
-                        <h3>
-                            Kerja Sama
-                        </h3>
-
-                        <p>
-                            Ketika semua anggota bekerja bersama dengan
-                            satu tujuan, hal yang terlihat sulit dapat
-                            menjadi lebih mudah untuk diselesaikan.
-                        </p>
-
+                        <div class="activity-top"><div class="activity-icon">🤝</div><div class="activity-number">05</div></div>
+                        <h3>Kerja Sama</h3>
+                        <p>Ketika semua anggota bekerja bersama dengan satu tujuan, hal yang terlihat sulit dapat menjadi
+                            lebih mudah untuk diselesaikan.</p>
                     </div>
-
-
                     <div class="activity-card reveal">
-
-                        <div class="activity-top">
-
-                            <div class="activity-icon">
-                                🌟
-                            </div>
-
-                            <div class="activity-number">
-                                06
-                            </div>
-
-                        </div>
-
-                        <h3>
-                            Menciptakan Kenangan
-                        </h3>
-
-                        <p>
-                            Setiap hari adalah kesempatan untuk
-                            menciptakan cerita baru yang nantinya akan
-                            menjadi kenangan berharga bagi seluruh
-                            anggota X-9.
-                        </p>
-
+                        <div class="activity-top"><div class="activity-icon">🌟</div><div class="activity-number">06</div></div>
+                        <h3>Menciptakan Kenangan</h3>
+                        <p>Setiap hari adalah kesempatan untuk menciptakan cerita baru yang nantinya akan menjadi kenangan
+                            berharga bagi seluruh anggota X-9 Invictus.</p>
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- ================= CTA ================= -->
-
+        <!-- ==================== CTA ==================== -->
         <section class="cta">
-
             <div class="cta-box reveal">
-
                 <div class="cta-content">
-
-                    <h2>
-                        X-9, More Than A Class.
-                    </h2>
-
-                    <p>
-                        Kami datang dari latar belakang yang berbeda,
-                        memiliki karakter yang berbeda, tetapi
-                        dipertemukan dalam satu kelas dan satu perjalanan.
-                        Inilah cerita kami.
-                    </p>
-
-                    <a href="#members" class="btn btn-primary">
-                        Kenali 36 Anggota →
-                    </a>
-
+                    <h2>X-9 Invictus, More Than A Class.</h2>
+                    <p>Kami datang dari latar belakang yang berbeda, memiliki karakter yang berbeda, tetapi dipertemukan
+                        dalam satu kelas dan satu perjalanan. Inilah cerita kami.</p>
+                    <a href="#members" class="btn btn-primary">Kenali 36 Anggota →</a>
                 </div>
-
             </div>
-
         </section>
-
     </main>
 
-
-    <!-- ================= FOOTER ================= -->
-
+    <!-- ==================== FOOTER ==================== -->
     <footer>
-
         <div class="footer-container">
-
             <div class="footer-grid">
-
                 <div class="footer-brand">
-
                     <a href="#home" class="logo">
-
-                        <div class="logo-icon">
-                            <span>X9</span>
-                        </div>
-
-                        <span>
-                            CLASS X-9
-                        </span>
-
+                        <div class="logo-icon"><span>X9</span></div>
+                        <span>X-9 INVICTUS</span>
                     </a>
-
-                    <p>
-                        Website resmi kelas X-9 yang menjadi tempat
-                        untuk mengenal, menyimpan cerita, dan
-                        memperkenalkan keluarga besar X-9.
-                    </p>
-
+                    <p>Website resmi kelas X-9 Invictus yang menjadi tempat untuk mengenal, menyimpan cerita, dan
+                        memperkenalkan keluarga besar X-9 Invictus.</p>
                 </div>
-
-
                 <div>
-
-                    <h3 class="footer-title">
-                        NAVIGASI
-                    </h3>
-
+                    <h3 class="footer-title">NAVIGASI</h3>
                     <ul class="footer-links">
-
-                        <li>
-                            <a href="#home">
-                                Home
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#about">
-                                Tentang Kelas
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#values">
-                                Nilai Kelas
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#members">
-                                Anggota
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#activities">
-                                Aktivitas
-                            </a>
-                        </li>
-
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Tentang Kelas</a></li>
+                        <li><a href="#values">Nilai Kelas</a></li>
+                        <li><a href="#members">Anggota</a></li>
+                        <li><a href="#activities">Aktivitas</a></li>
                     </ul>
-
                 </div>
-
-
                 <div>
-
-                    <h3 class="footer-title">
-                        X-9
-                    </h3>
-
+                    <h3 class="footer-title">X-9</h3>
                     <ul class="footer-links">
-
-                        <li>
-                            <a href="#about">
-                                Our Story
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#members">
-                                Our Members
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#activities">
-                                Our Journey
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#home">
-                                Back to Home
-                            </a>
-                        </li>
-
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#members">Our Members</a></li>
+                        <li><a href="#activities">Our Journey</a></li>
+                        <li><a href="#home">Back to Home</a></li>
                     </ul>
-
                 </div>
-
             </div>
-
-
             <div class="footer-bottom">
-
-                <span id="copyright">
-                    © 2026 X-9 Class. All rights reserved.
-                </span>
-
-                <span>
-                    Made with ❤️ by X-9
-                </span>
-
+                <span id="copyright">© 2026 X-9 Invictus. All rights reserved.</span>
+                <span class="footer-credit">X-9 Invictus · Dempo</span>
             </div>
-
         </div>
-
     </footer>
 
-
     <!-- BACK TO TOP -->
+    <button class="back-top" id="backTop" aria-label="Kembali ke atas">↑</button>
 
-    <button
-        class="back-top"
-        id="backTop"
-        aria-label="Kembali ke atas"
-    >
-        ↑
-    </button>
-
-
-    <!-- ================= JAVASCRIPT ================= -->
-
+    <!-- ==================== JAVASCRIPT ==================== -->
     <script>
+        // --- MEMBERS DATA ---
+        const members = [
+            ["Vino", 1],
+            ["Amora", 2],
+            ["Cencen", 3],
+            ["Cathy", 4],
+            ["Callie", 5],
+            ["Cherry", 6],
+            ["Kaia", 7],
+            ["Louise", 8],
+            ["Flo", 9],
+            ["1Ratya", 10],
+            ["Geon", 11],
+            ["Joice", 12],
+            ["Josh", 13],
+            ["Ale", 14],
+            ["Kate", 15],
+            ["Keiko", 16],
+            ["Ken", 17],
+            ["Pelangi", 18],
+            ["Marvel", 19],
+            ["Matthew", 20],
+            ["Melona", 21],
+            ["Michael", 22],
+            ["Tata", 23],
+            ["Naufal", 24],
+            ["Nema", 25],
+            ["Nolan", 26],
+            ["Quin", 27],
+            ["Raphael", 28],
+            ["Revan", 29],
+            ["Rifka", 30],
+            ["Kenny", 31],
+            ["Steffi", 32],
+            ["Tegar", 33],
+            ["Xylon", 34],
+            ["Erine", 35],
+            ["Laura", 36]
+        ];
 
-        /* NAVBAR */
+        const grid = document.getElementById('membersGrid');
+        grid.innerHTML = members.map(m =>
+            `<div class="member-card reveal">
+                    <div class="member-number">${String(m[1]).padStart(2, '0')}</div>
+                    <div class="member-info">
+                        <h3>${m[0]}</h3>
+                        <span>Member #${m[1]}</span>
+                    </div>
+                </div>`
+        ).join('');
 
-        const navbar =
-            document.getElementById("navbar");
-
-        window.addEventListener("scroll", () => {
-
-            if (window.scrollY > 50) {
-                navbar.classList.add("scrolled");
-            } else {
-                navbar.classList.remove("scrolled");
-            }
-
+        // --- NAVBAR SCROLL ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-
-        /* MOBILE MENU */
-
-        const menuToggle =
-            document.getElementById("menuToggle");
-
-        const navMenu =
-            document.getElementById("navMenu");
-
-        menuToggle.addEventListener("click", () => {
-
-            navMenu.classList.toggle("active");
-
-            if (
-                navMenu.classList.contains("active")
-            ) {
-                menuToggle.textContent = "✕";
-            } else {
-                menuToggle.textContent = "☰";
-            }
-
+        // --- MOBILE MENU ---
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('navMenu');
+        toggle.addEventListener('click', () => {
+            const open = menu.classList.toggle('active');
+            toggle.textContent = open ? '✕' : '☰';
         });
-
-
-        /* CLOSE MOBILE MENU */
-
-        document.querySelectorAll(
-            ".nav-menu a"
-        ).forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                navMenu.classList.remove("active");
-
-                menuToggle.textContent = "☰";
-
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                toggle.textContent = '☰';
             });
-
         });
 
-
-        /* SCROLL REVEAL */
-
-        const revealElements =
-            document.querySelectorAll(".reveal");
-
-        const revealObserver =
-            new IntersectionObserver(
-                (entries) => {
-
-                    entries.forEach(entry => {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.classList.add(
-                                "active"
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.12
-                }
-            );
-
-
-        revealElements.forEach(element => {
-
-            revealObserver.observe(element);
-
-        });
-
-
-        /* BACK TO TOP */
-
-        const backTop =
-            document.getElementById("backTop");
-
-        window.addEventListener("scroll", () => {
-
-            if (window.scrollY > 600) {
-
-                backTop.classList.add("show");
-
-            } else {
-
-                backTop.classList.remove("show");
-
-            }
-
-        });
-
-
-        backTop.addEventListener("click", () => {
-
-            window.scrollTo({
-
-                top: 0,
-
-                behavior: "smooth"
-
+        // --- SCROLL REVEAL ---
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('active');
             });
+        }, { threshold: 0.12 });
+        reveals.forEach(el => observer.observe(el));
 
-        });
-
-
-        /* SMOOTH SCROLL */
-
-        document.querySelectorAll(
-            'a[href^="#"]'
-        ).forEach(anchor => {
-
-            anchor.addEventListener(
-                "click",
-                function(event) {
-
-                    const target =
-                        document.querySelector(
-                            this.getAttribute("href")
-                        );
-
-                    if (target) {
-
-                        event.preventDefault();
-
-                        target.scrollIntoView({
-
-                            behavior: "smooth",
-
-                            block: "start"
-
-                        });
-
-                    }
-
+        // --- ZOOM EFFECT ON ABOUT CARD (membesar saat scroll) ---
+        const aboutCard = document.getElementById('aboutCard');
+        const aboutObserver = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    aboutCard.classList.add('zoom-in');
                 }
-            );
+            });
+        }, { threshold: 0.3 });
+        aboutObserver.observe(aboutCard);
 
+        // --- BACK TO TOP ---
+        const back = document.getElementById('backTop');
+        window.addEventListener('scroll', () => {
+            back.classList.toggle('show', window.scrollY > 600);
+        });
+        back.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-
-        /* MEMBER ANIMATION */
-
-        document.querySelectorAll(
-            ".member-card"
-        ).forEach((card, index) => {
-
-            card.style.transitionDelay =
-                `${(index % 4) * 0.05}s`;
-
+        // --- SMOOTH SCROLL ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
         });
 
-
-        /* ACTIVITY ANIMATION */
-
-        document.querySelectorAll(
-            ".activity-card"
-        ).forEach((card, index) => {
-
-            card.style.transitionDelay =
-                `${(index % 3) * 0.08}s`;
-
+        // --- STAGGER DELAYS FOR CARDS ---
+        document.querySelectorAll('.member-card, .activity-card').forEach((el, i) => {
+            el.style.transitionDelay = `${(i % 4) * 0.05}s`;
         });
 
-
-        /* YEAR */
-
-        document.getElementById(
-            "copyright"
-        ).innerHTML =
-            `© ${new Date().getFullYear()} X-9 Class. All rights reserved.`;
-
+        // --- FOOTER YEAR ---
+        document.getElementById('copyright').textContent =
+            `© ${new Date().getFullYear()} X-9 Invictus. All rights reserved.`;
     </script>
-
 </body>
 </html>
